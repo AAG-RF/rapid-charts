@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import {
     LineChart, Line, BarChart, Bar, PieChart, Pie,
@@ -47,7 +49,7 @@ const ChartCreator: React.FC<ChartCreatorProps> = ({
         value: item.value
     }));
 
-    const renderChart = (): JSX.Element | null => {
+    const renderChart = (): JSX.Element => {
         switch (chartType) {
             case 'line':
                 return (
@@ -101,7 +103,7 @@ const ChartCreator: React.FC<ChartCreatorProps> = ({
                     </PieChart>
                 );
             default:
-                return null;
+                return <LineChart data={data} className="w-full h-64" />;
         }
     };
 
